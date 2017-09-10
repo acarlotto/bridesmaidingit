@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>BridesmaidingIt!</title>
+      <!-- Bootstrap -->
+      <link rel="stylesheet" type="text/css" href="assets/styles/index.scss">
+    <!-- Do not add `link` tags unless you know what you are doing -->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <link href="https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister|Sedgwick+Ave+Display|Source+Serif+Pro" rel="stylesheet">
+      <!-- Do not add `script` tags unless you know what you are doing -->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="handlebars-v4.0.10.js"></script>
+
+    </head>
+
+    <body class="container-fluid">
+
+
+
+          <nav class="navbar navbar-default">
+      <div class="container-fluid">
+
+          <div class="navbar navbar-default navbar-fixed-top">
+
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+  <a class="navbar-brand" href="#">  <img src="http://bridesmaidingit.com//assets/images/logo.png"></a>
+              </div>
+              <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <!--/.nav-collapse -->
+            </div>
+          </div>
+  </nav>
+  <div class="jumbotron">
+
+        <div class="container">
+
+          <div id="errorMessage"></div>
+          <div id="yayMessage"></div>
+          <div id="changePasswordMessage"></div>
+          <div id="begin"></div>
+
+
+
+
+          <h3>Planning site for the wedding party!</h3>
+
+          <div class="row">
+            <div class="col-md-9 push-md-3 offset-md-3">  <form id="registration" class="form-signin">
+            <p>Register</p>
+
+            <div class="input-group">
+                <label for="password"> Email </label>
+              <input type="text" class="form-control" name="credentials[email]" placeholder="Email" aria-label="Username" aria-describedby="sizing-addon2">
+            </div>
+            <div class="input-group">
+            <label for="password"> Password </label>
+            <input type="password" class="form-control" name="credentials[password]" placeholder="Password">
+            </div>
+            <div class="input-group">
+            <label for="password-confirm"> Password </label>
+            <input type="password" class="form-control" name="credentials[password_confirmation]" placeholder="Confirm Password">
+            </div>
+            <input type="submit" class="btn btn-info" name="submit" value="Register">
+
+
+          </form>
+        </div>
+
+            <div class="col-md-3 pull-md-9"><form id="login" class="form-signin">
+              <p> Login</p>
+              <div class="input-group">
+                <label for="username"> Username </label>
+                <input type="text" class="form-control" name="credentials[email]" placeholder="Email">
+              </div>
+              <div class="input-group">
+                <label for="password"> Password </label>
+                <input type="password" class="form-control" name="credentials[password]" placeholder="Password">
+              </div>
+              <input type="submit" name="submit" class="btn btn-info" value="Log In">
+            </form>
+</div>
+          </div>
+
+
+
+
+
+<form id="passChange">
+    <p> Change Password </p>
+    <div class="input-group">
+      <label for="oldPassword"> Old Password </label>
+      <input type="password" class="form-control" name="passwords[old]" placeholder="Old Password">
+    </div>
+    <div class="input-group">
+      <label for="newPassword"> New Password </label>
+      <input type="password" class="form-control" name="passwords[new]" placeholder="New Password">
+    </div>
+    <input type="submit" name="submit" class="btn btn-info" value="Change Password">
+
+  </form>
+
+  <input type="submit" name="close" class="btn btn-info" id="close" value="close">
+
+  <br>
+
+<button class="btn btn-info" id="log-out"> Log Out </button>           <button type="Submit" id="createEventButton" class="btn btn-info ">Create a todo</button> <button type="Submit" id="showChangePassButton" class="btn btn-info ">Change Password</button>
+
+  <div class="container">
+
+
+
+
+
+      <div class="row">
+        <form id="create-event">
+          <h4>Create a todo for the brides events:</h4>
+          <div class="input-group">
+            <label for="title">Todo Description:</label>
+            <input type="text" class="form-control" name="event[title]" value="" placeholder="">
+            <input type="hidden" class="form-control" name="event[user_id]" value="1">
+            <input type="hidden" class="form-control" name="event[event_id]" value="1">
+          </div>
+          <input type="submit" name="submit" class="btn btn-info" value="enter">
+        </form>
+    </div>
+
+    <div class="row">
+      <form id="updateEvent">
+        <h2>Update your todo</h2>
+        <div class="input-group">
+          <label for="title">Todo Description:</label>
+          <input type="text" class="form-control" name="event[title]" value="" placeholder="">
+          <!--<input type="hidden" name="event[user_id]" value="1">-->
+          <input type="hidden" id="eventId" name="event[event_id]" value="">
+        </div>
+        <input type="submit" name="submit" class="btn btn-info" value="enter">
+      </form>
+  </div>
+
+
+<div class="list">
+          <form class="events" id='eventsShow'>
+            <br>
+            <p>Your Bridesmaid to do list:</p>
+
+                <p>  <button type="Submit" class="btn btn-info">View list >></button>    <div id="showChanges"></div></p>
+
+                </form>
+
+                <!-- <form class="events" id='showCreateField'>
+                        <button type="Submit" class="btn btn-infos showCreateField">Create a todo >></button>
+                      </form> -->
+
+
+
+                <!-- <form class="events" id='eventsShowUser'>
+                  <h3>The Bridesmaid to do list</h3>
+                        <button type="Submit" class="btn btn-info">Show logged in user list</button> -->
+
+                      <!-- </form> -->
+
+                <div id="message"></div>
+              </div>
+
+
+
+
+  <!-- <button type="Submit" id="showEdit" class="btn btn-info">edit</button> -->
+
+<form class="events" id='edit'>
+
+      </form>
+
+      <!-- <form class="events" id='delete'>
+
+      </form> -->
+    </div>
+
+<script src="../../main.js"></script>
+<script type="text/javascript" src="/ui.js"></script>
+    </body>
+</html>
